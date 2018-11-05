@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project;
 
 import com.mysql.jdbc.Connection;
@@ -13,17 +8,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-/**
- *
- * @author cptja
- */
+
 public class MySQL {
     public ArrayList getAll(){   
         try{  
                 Class.forName("com.mysql.jdbc.Driver");  
                 Connection con=(Connection) DriverManager.getConnection(  
                 "jdbc:mysql://localhost:3306/prog_project","root","");  
-                //here sonoo is database name, root is username and password  
                 Statement stmt=(Statement) con.createStatement();  
                 ResultSet rs=(ResultSet) stmt.executeQuery("select * from todo");  
                 
@@ -49,7 +40,6 @@ public class MySQL {
                 Class.forName("com.mysql.jdbc.Driver");  
                 Connection con=(Connection) DriverManager.getConnection(  
                 "jdbc:mysql://localhost:3306/prog_project","root","");  
-                //here sonoo is database name, root is username and password  
                 Statement stmt=(Statement) con.createStatement();  
                 String query = "insert into todo (Name,Description,Date,Status) values ("
                         + "'"+name+"',"
@@ -67,7 +57,6 @@ public class MySQL {
                 Class.forName("com.mysql.jdbc.Driver");  
                 Connection con=(Connection) DriverManager.getConnection(  
                 "jdbc:mysql://localhost:3306/prog_project","root","");  
-                //here sonoo is database name, root is username and password  
                 Statement stmt=(Statement) con.createStatement();  
                 String query = "update todo set "
                         + "Name='"+name+"',"
@@ -86,7 +75,6 @@ public class MySQL {
                 Class.forName("com.mysql.jdbc.Driver");  
                 Connection con=(Connection) DriverManager.getConnection(  
                 "jdbc:mysql://localhost:3306/prog_project","root","");  
-                //here sonoo is database name, root is username and password  
                 Statement stmt=(Statement) con.createStatement();  
                 String query = "delete from todo where id = " +id;
                 stmt.executeUpdate(query);
